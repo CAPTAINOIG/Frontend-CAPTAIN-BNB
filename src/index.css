@@ -1,0 +1,80 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+
+.background{
+    /* background-image: url(./assets/image/paris.jpg); */
+    position: relative;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+}
+
+.login{
+    /* background-image: url(./assets/image/digital.jpg); */
+    position: relative;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+}
+
+#host{
+    /* background-image: url(./assets/image/image.jpg); */
+    position: relative;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+}
+
+#arrow{
+    display: none;
+}
+.detailsm{
+    display: none;
+}
+
+
+
+::placeholder{
+    font-weight: bold;
+    color: palevioletred;
+}
+
+
+@media (max-width:900px) {
+    #week, #Captainbnb, #filter, #display, #detail{
+        display: none;
+    }
+    #displaysec{
+        margin-left: -20px;
+    }
+    #moon{
+        height: 180%;
+        margin-left: -30px;
+        margin-top: -15px;
+    }
+    #arrow{
+        display: block;
+        background-color: blue;
+        border-radius: 100%;
+        position: absolute;
+        left: 90%;
+        top: 50%;
+    }
+    .detailsm{
+        display: block;
+    }
+    #cap{
+        margin-top: -50px;
+        padding-left: 50px;
+    }
+}
