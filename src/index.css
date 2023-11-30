@@ -6,7 +6,7 @@
 
 
 .background{
-    /* background-image: url(./assets/image/paris.jpg); */
+    background-image: url(./assets/image/paris.jpg);
     position: relative;
     height: 100vh;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 }
 
 .login{
-    /* background-image: url(./assets/image/digital.jpg); */
+    background-image: url(./assets/image/digital.jpg);
     position: relative;
     height: 100vh;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 }
 
 #host{
-    /* background-image: url(./assets/image/image.jpg); */
+    background-image: url(./assets/image/image.jpg);
     position: relative;
     height: 100%;
     background-repeat: no-repeat;

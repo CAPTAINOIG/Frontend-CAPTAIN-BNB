@@ -26,8 +26,8 @@ const Dashboard = () => {
   const [firstName, setFirstName] = useState("")
   
 
-  let endpoint = 'http://localhost:3000/user/dashboard'
-  // let endpoint = 'https://captain-bnb.onrender.com/user/dashboard'
+  // let endpoint = 'http://localhost:3000/user/dashboard'
+  let endpoint = 'https://captain-bnb.onrender.com/user/dashboard'
 
   useEffect(() => {
     axios.get(endpoint, {

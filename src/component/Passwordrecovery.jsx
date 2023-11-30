@@ -20,13 +20,14 @@ const Passwordrecovery = () => {
       axios.post(endpoint, data)
       .then((res)=>{
         console.log(res);
-        // navigate("/reset")
+        navigate("/reset")
 
       }).catch((err)=>{
         console.log(err);
       })
     }
     console.log(data);
+    localStorage.setItem("email", JSON.stringify(data.email))
   }
   return (
     <div>

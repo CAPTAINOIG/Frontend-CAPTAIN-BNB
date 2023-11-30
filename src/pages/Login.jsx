@@ -47,8 +47,8 @@ const Login = () => {
   }
 
 
-  let endpoint = 'http://localhost:3000/user/login'
-  // let endpoint = 'https://captain-bnb.onrender.com/user/login'
+  // let endpoint = 'http://localhost:3000/user/login'
+  let endpoint = 'https://captain-bnb.onrender.com/user/login'
   
 
 

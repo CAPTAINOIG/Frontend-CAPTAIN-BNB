@@ -52,9 +52,9 @@ const Signup = () => {
   }
 
 
-  let endpoint = 'http://localhost:3000/user/signup'
+  // let endpoint = 'http://localhost:3000/user/signup'
 
-  // let endpoint = 'https://captain-bnb.onrender.com/user/signup';
+  let endpoint = 'https://captain-bnb.onrender.com/user/signup';
 
   const onSubmit = (data) => {
     console.log(data);

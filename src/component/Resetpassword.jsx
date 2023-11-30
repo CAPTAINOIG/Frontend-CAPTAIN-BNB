@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-// import { setEmail } from '../Redux/counterSlice';
 
 const ResetPassword = () => {
-    // const dispatch = useDispatch();
-    // const emailFromRedux = useSelector(state => state.email); // Assuming your email is stored in Redux
-    let detail = JSON.parse(localStorage.getItem('real_estate'))
-    console.log(detail.email);
+
+    let userEmail = JSON.parse(localStorage.getItem("email"))
+    console.log(userEmail);
+const email = userEmail;
     const [data, setData] = useState({
         email: email,
         otp: '',
@@ -15,9 +13,7 @@ const ResetPassword = () => {
         confirmPassword: ''
     });
 
-    // useEffect(() => {
-    //     setData(prevData => ({ ...prevData, email: emailFromRedux }));
-    // }, [emailFromRedux]);
+
 
     const handleChanges = (e) => {
         const { name, value } = e.target;
@@ -26,38 +22,29 @@ const ResetPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent default form submission
-        console.log(data);
-        axios.post('http://localhost:3000/user/reset', data)
-            .then((res) => {
-                console.log(res); // Handle success response
-            })
-            .catch((err) => {
-                console.log(err); // Handle error
-            });
+        console.log(data); // You can perform validations or other operations here
 
         if (data.email && data.otp && data.newPassword && data.confirmPassword) {
-            if (data.newPassword !== data.confirmPassword) {
-                console.log('Error: Passwords do not match');
-                return;
-            }
-            // Perform API call using Axios
+            console.log(data); // You can perform validations or other operations here
+
+            // Example: Making an axios post request
+            axios.post('http://localhost:3000/user/reset', data)
+                .then((res) => {
+                    console.log(res); // Handle success response
+                })
+                .catch((err) => {
+                    console.log(err); // Handle error
+                });
         } else {
             console.log('Error: Please fill in all fields');
         }
     };
 
-    
-  const handleEmailChange = (event) => {
-    const { value } = event.target;
-    dispatch(setEmail(value)); // Dispatch the setEmail action to update the email state
-  };
-
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" name='otp' onChange={handleChanges} placeholder="Enter OTP" />
-            <input type="password" name='newPassword' onChange={handleChanges} placeholder="Enter new password" />
-            <input type="password" name='confirmPassword' onChange={handleChanges} placeholder="Confirm new password" />
-            <input type="text" onChange={handleEmailChange} placeholder="Enter email" />
+            <input type="text" name='otp' onChange={handleChanges} />
+            <input type="text" name='newPassword' onChange={handleChanges} />
+            <input type="text" name='confirmPassword' onChange={handleChanges} />
             <button type="submit">Submit</button>
         </form>
     );
