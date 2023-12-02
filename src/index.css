@@ -35,6 +35,16 @@
     overflow: auto;
 }
 
+#passrec{
+    background-image: url(./assets/image/image.jpg);
+    position: relative;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+}
+
 #arrow{
     display: none;
 }

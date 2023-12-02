@@ -57,7 +57,6 @@ function App() {
       <Route path='/captainoigdetail' element={<Arrow/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path="/dashboard" element={<Dashboard/>} />
-      
       <Route path="/hosting" element={<Hosting/>} />
       <Route path="/password" element={<Passwordrecovery/>} />
       <Route path="/reset" element={<Resetpassword/>} />
