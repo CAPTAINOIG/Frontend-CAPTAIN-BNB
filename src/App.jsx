@@ -18,6 +18,7 @@ import Hosting from './host/Hosting'
 
 
 
+
 // const clientId = "939523337752-cgh7jofh594cmpfa2thvco92tl5sj17o.apps.googleusercontent.com"
 
 
@@ -60,6 +61,8 @@ function App() {
       <Route path="/hosting" element={<Hosting/>} />
       <Route path="/password" element={<Passwordrecovery/>} />
       <Route path="/reset" element={<Resetpassword/>} />
+  
+
     </Routes>
     </>
   )
