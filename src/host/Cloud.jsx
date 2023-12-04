@@ -56,6 +56,14 @@ const Cloud = () => {
   };
 
 
+//   <button onClick={toggleUp} className={host ? 'hidden' : ''} id="up">
+//           <FaAngleUp />
+//         </button>
+//         <button onClick={toggleDown} className={host ? '' : 'hidden'}>
+//           <FaAngleDown />
+//           <Link className='underline' id='host' to="/hosting">Host</Link>
+//         </button>
+
 
   return (
     <div className="flex justify-content-center bg-dark vh-100">

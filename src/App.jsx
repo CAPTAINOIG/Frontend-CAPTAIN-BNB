@@ -13,6 +13,7 @@ import Passwordrecovery from './component/Passwordrecovery'
 // import {gapi} from 'gapi-script'
 import Resetpassword from './component/Resetpassword'
 import Hosting from './host/Hosting'
+import Intro from './host/Intro'
 
 
 
@@ -61,8 +62,7 @@ function App() {
       <Route path="/hosting" element={<Hosting/>} />
       <Route path="/password" element={<Passwordrecovery/>} />
       <Route path="/reset" element={<Resetpassword/>} />
-  
-
+      <Route path="/intro" element={<Intro/>} />
     </Routes>
     </>
   )
