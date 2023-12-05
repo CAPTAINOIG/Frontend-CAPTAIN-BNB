@@ -71,10 +71,11 @@ const Hosting = () => {
           setMessage(message);
           setLoading(false);
           // Clear the form inputs if needed
-          // setNameOfHost('');
-          // setTitle('');
-          // setAddress('');
-          // setDescription('');
+          setNameOfHost('');
+          setTitle('');
+          setAddress('');
+          setDescription('');
+          setPerks('');
         } else {
           Swal.fire({
             icon: 'error',
