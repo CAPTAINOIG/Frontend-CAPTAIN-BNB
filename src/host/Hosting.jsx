@@ -26,8 +26,8 @@ const Hosting = () => {
 
 
 
-  let endpoint = 'http://localhost:3000/user/place'
-  // let endpoint = 'https://captain-bnb.onrender.com/user/place'
+  // let endpoint = 'http://localhost:3000/user/place'
+  let endpoint = 'https://captain-bnb.onrender.com/user/place'
   
   async function savePlace(e) {
     e.preventDefault();
