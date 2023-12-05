@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Perks from './Perks'
 import axios from 'axios'
-// import PhotosUploader from './PhotosUploader'
+import gif from '../assets/image/gif.gif'
 import Cloud from './Cloud'
 import { Link } from 'react-router-dom'
 // import { TypeAnimation } from 'react-type-animation'
@@ -18,30 +18,44 @@ const Hosting = () => {
   const [bed, setBed] = useState(1)
   const [bath, setBath] = useState(1)
   const [bedroom, setBedroom] = useState(1)
-  // const [addedPhotos, setAddedPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState(100000)
+  const [message, setMessage] = useState("")
 
 
 
 
-  let endpoint = 'http://localhost:3000/user/place'
+  // let endpoint = 'http://localhost:3000/user/place'
+  let endpoint = 'https://captain-bnb.onrender.com/user/place'
 
   async function savePlace(e) {
     e.preventDefault();
-    const placeData = {
-      nameOfHost,
-      title, address,
-      description, perks, extraInfo, addedPhotos,
-      maxGuests, bed, bath, bedroom, price,
-    };
-    console.log(placeData);
-    axios.post(endpoint, placeData)
+    if(nameOfHost === "" || title === "" || address === "" || description === "" || perks === "" ){
+      alert("Fill the required Input")
+    } else{
+      const placeData = {
+        nameOfHost,
+        title, address,
+        description, perks, extraInfo,
+        maxGuests, bed, bath, bedroom, price,
+      };
+      console.log(placeData);
+      axios.post(endpoint, placeData)
       .then((response) => {
-        console.log(response);
+        setLoading(true)
+        console.log(response.data.message);
+        setMessage(response.data.message)
+        setLoading("")
+        setNameOfHost("")
+        setTitle("")
+        setAddress("")
+        setDescription("")
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false)
       })
+    }
   }
 
   function inputHeader(text) {
@@ -137,8 +151,13 @@ const Hosting = () => {
           </div>
         </div>
         <Cloud />
+        <div>{message}</div>
         <div className='text-center  bg-pink-800 rounded'>
-        <button className="text-white text-xl p-2">Save</button>
+        <button type='submit' className='bg-pink-800 text-white rounded  lg:mt-2 lg:p-3 p-2 lg:w-[100%] w-[100%]'>
+        {
+          loading ? <img src={gif} alt="" width={25} className='mx-auto' /> : 'SUBMIT'
+        }
+      </button>
         </div>
 
       </form>

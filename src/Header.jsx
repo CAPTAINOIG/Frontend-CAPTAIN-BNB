@@ -10,22 +10,22 @@ import { AppContext } from './context/Dashboard';
 const Header = () => {
     const { theme, setTheme } = useContext(AppContext)
     const [host, setHost] = useState(false);
-const [hosting, setHosting] = useState(false);
+    const [hosting, setHosting] = useState(false);
 
-const toggleHost = () => {
-  setHost(!host);
-};
+    const toggleHost = () => {
+        setHost(!host);
+    };
 
-const toggleUp = () => {
-  setHost(false);
-  console.log(host);
-};
+    const toggleUp = () => {
+        setHost(false);
+        console.log(host);
+    };
 
-const toggleDown = () => {
-  setHosting(false);
-  setHost(true);
-  console.log(host);
-};
+    const toggleDown = () => {
+        setHosting(false);
+        setHost(true);
+        console.log(host);
+    };
 
     return (
         <div className='p-4 flex justify-between border dark:border-gray-700 border-gray-200 font-bold font-serif'>
@@ -55,7 +55,7 @@ const toggleDown = () => {
                     </div>
 
                 </div>
-                <Link  to="" className='flex gap-2 border items-center border-gray-300 rounded-full py-2 px-4'>
+                <Link to="" className='flex gap-2 border items-center border-gray-300 rounded-full py-2 px-4'>
                     <Link className='hidden underline text-white' id='host' to="/hosting">Host</Link>
                     <div>
                         <FaBars className='cursor-pointer' />
@@ -63,15 +63,15 @@ const toggleDown = () => {
                     <div className='bg-gray-500 text-white rounded-full border cursor-pointer border-gray-500 relative overflow-hidden'>
                         <FaUserCircle />
                     </div>
-                </Link>
-                
-  <button onClick={toggleUp} className={host ? '' : 'hidden'} id="up">
-           <FaAngleUp />
-           <Link className='underline' id='host' to="/intro">Host</Link>
-         </button>
-        <button onClick={toggleDown} className={host ? 'hidden' : ''}>
-          <FaAngleDown />
-        </button>
+                    
+                    </Link>
+                    <button onClick={toggleUp} className={host ? '' : 'hidden'} id="up">
+                        <FaAngleUp />
+                        <Link className='underline text-white font-bold' id='host' to="/intro">Host</Link>
+                    </button>
+                    <button onClick={toggleDown} className={host ? 'hidden' : ''}>
+                        <FaAngleDown />
+                    </button>
 
             </div>
         </div>

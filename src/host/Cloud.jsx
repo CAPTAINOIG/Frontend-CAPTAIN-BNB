@@ -56,18 +56,10 @@ const Cloud = () => {
   };
 
 
-//   <button onClick={toggleUp} className={host ? 'hidden' : ''} id="up">
-//           <FaAngleUp />
-//         </button>
-//         <button onClick={toggleDown} className={host ? '' : 'hidden'}>
-//           <FaAngleDown />
-//           <Link className='underline' id='host' to="/hosting">Host</Link>
-//         </button>
-
 
   return (
     <div className="flex justify-content-center bg-dark vh-100">
-      <div className="lg-w-25 mt-5 mb-5 lg:me-0 me-[10px] flex flex-wrap">
+      <div className="lg-w-25 mt-5  lg:me-0 me-[10px] flex flex-wrap">
         <input className="cursor-pointer lg:me-[10%] me-[10px] lg:w-[50%] w-[100%]" type="file" multiple accept="*" name="image" onChange={handleInput} /> <br />
         {progressBars.map((progress, index) => (
             <div key={index} className="relative w-full h-8 mt-5 rounded-lg mb-2">
@@ -86,7 +78,7 @@ const Cloud = () => {
         <div className='grid lg:grid-cols-6 grid-cols-1'>
         {imageUrls.map((url, index) => (
             <div key={index} style={{ position: 'relative'}}>
-            <img src={url} className="lg:w-[85%] ms-10 lg:ms-0 rounded mt-5 mb-2" alt="" style={{ maxHeight: '200px' }} />
+            <img src={url} className="lg:w-[85%] ms-10 lg:ms-0 rounded mb-2" alt="" style={{ maxHeight: '180px' }} />
             <XCircle className='absolute lg:mt-[-92%] mt-[-87%] lg:ms-[77%] ms-[90%] z-index-10 cursor-pointer'
             onClick={() => removeImage(index)}
             color="red"
