@@ -4,6 +4,7 @@ import axios from 'axios'
 import gif from '../assets/image/gif.gif'
 import Cloud from './Cloud'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
 // import { TypeAnimation } from 'react-type-animation'
 
 
@@ -25,38 +26,75 @@ const Hosting = () => {
 
 
 
-  // let endpoint = 'http://localhost:3000/user/place'
-  let endpoint = 'https://captain-bnb.onrender.com/user/place'
-
+  let endpoint = 'http://localhost:3000/user/place'
+  // let endpoint = 'https://captain-bnb.onrender.com/user/place'
+  
   async function savePlace(e) {
     e.preventDefault();
-    if(nameOfHost === "" || title === "" || address === "" || description === "" || perks === "" ){
-      alert("Fill the required Input")
-    } else{
+    if (
+      nameOfHost === '' ||
+      title === '' ||
+      address === '' ||
+      description === '' ||
+      perks === ''
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fill all the required inputs!',
+      });
+    } else {
+      setLoading(true);
       const placeData = {
         nameOfHost,
-        title, address,
-        description, perks, extraInfo,
-        maxGuests, bed, bath, bedroom, price,
+        title,
+        address,
+        description,
+        perks,
+        extraInfo,
+        maxGuests,
+        bed,
+        bath,
+        bedroom,
+        price,
       };
-      console.log(placeData);
-      axios.post(endpoint, placeData)
-      .then((response) => {
-        setLoading(true)
-        console.log(response.data.message);
-        setMessage(response.data.message)
-        setLoading("")
-        setNameOfHost("")
-        setTitle("")
-        setAddress("")
-        setDescription("")
+      axios
+        .post(endpoint, placeData)
+        .then((response) => {
+          const { status, message, result } = response.data;
+        if (status) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+          });
+          setMessage(message);
+          setLoading(false);
+          // Clear the form inputs if needed
+          // setNameOfHost('');
+          // setTitle('');
+          // setAddress('');
+          // setDescription('');
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: message,
+          });
+          setLoading(false);
+        }
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false)
-      })
-    }
+        setLoading(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'An error occurred. Please try again later.',
+        });
+      });
   }
+}
 
   function inputHeader(text) {
     return (
