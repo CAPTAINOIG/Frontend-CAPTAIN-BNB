@@ -14,6 +14,7 @@ import Passwordrecovery from './component/Passwordrecovery'
 import Resetpassword from './component/Resetpassword'
 import Hosting from './host/Hosting'
 import Intro from './host/Intro'
+import Errorpage from './pages/Errorpage'
 
 
 
@@ -63,6 +64,7 @@ function App() {
       <Route path="/password" element={<Passwordrecovery/>} />
       <Route path="/reset" element={<Resetpassword/>} />
       <Route path="/intro" element={<Intro/>} />
+      <Route path="*" element={<Errorpage/>} />
     </Routes>
     </>
   )

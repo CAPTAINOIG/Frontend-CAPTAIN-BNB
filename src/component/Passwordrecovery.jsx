@@ -9,6 +9,7 @@ const Passwordrecovery = () => {
   let navigate = useNavigate()
   // let endpoint = 'http://localhost:3000/user/password'
   let endpoint = 'https://captain-bnb.onrender.com/user/password'
+  
   const [data, setdata] = useState({
     email: '',
   })

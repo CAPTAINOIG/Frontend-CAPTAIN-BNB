@@ -16,7 +16,7 @@
 }
 
 .login{
-    background-image: url(./assets/image/digital.jpg);
+    /* background-image: url(./assets/image/digital.jpg); */
     position: relative;
     height: 100vh;
     background-repeat: no-repeat;
