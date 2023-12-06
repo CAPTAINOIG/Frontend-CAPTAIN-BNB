@@ -15,6 +15,10 @@ import Resetpassword from './component/Resetpassword'
 import Hosting from './host/Hosting'
 import Intro from './host/Intro'
 import Errorpage from './pages/Errorpage'
+import Rootlayout from './layout/Rootlayout'
+import Allusers from './user/Allusers'
+import Homepage from './user/Homepage'
+import Userplace from './user/Userplace'
 
 
 
@@ -26,30 +30,22 @@ import Errorpage from './pages/Errorpage'
 
 
 function App() {
-  // useEffect(() => {
-  //   function start() {
-  //     gapi.client.init({
-  //       clientId: clientId,
-  //       scope: ""
-  //     }).then(() => {
-  //       // Initialization successful, retrieve access token here
-  //       const accessToken = gapi.auth.getToken().access_token;
-  //       console.log(accessToken); // Ensure console.log is within the scope of the retrieved data
-  //       // Use the access token for further actions here
-  //       // eg navigate to
-  //     }).catch(error => {
-  //       console.error("Error initializing gapi: ", error);
-  //     });
-  //   }
+  // Simulated authentication and admin status
+  const isAuthenticated = true; // Change this based on your authentication logic
+  const isAdmin = true; // Change this based on admin status
 
-  //   gapi.load('client:auth2', start);
-  // }, []);
-
-  // <Route path="/dashboard" element={ token ? <Dashboard/> : <navigate to="/login"/>} />
-  // const token = localStorage.token;
   const navigate = useNavigate();
-  
 
+  // Custom Admin Route component
+  const AdminRoute = ({ element, ...rest }) => {
+    if (isAuthenticated && isAdmin) {
+      return <Route {...rest} element={element} />;
+    } else {
+      // If user is not authenticated or not an admin, redirect to login or error page
+      navigate('/login'); // Redirect to login or any other page
+      return null; // Render nothing or an error message
+    }
+  };
   
   return (
     <>
@@ -64,6 +60,10 @@ function App() {
       <Route path="/password" element={<Passwordrecovery/>} />
       <Route path="/reset" element={<Resetpassword/>} />
       <Route path="/intro" element={<Intro/>} />
+      <Route path="admin-captain-bnb-dev-oig/*" element={<Rootlayout />} />
+      <Route path="/allusers" element={<Allusers />} />
+      <Route path="/userplace" element={<Userplace />} />
+      <Route path="/" element={<Homepage />} />
       <Route path="*" element={<Errorpage/>} />
     </Routes>
     </>

@@ -29,6 +29,8 @@ const Hosting = () => {
   // let endpoint = 'http://localhost:3000/user/place'
   let endpoint = 'https://captain-bnb.onrender.com/user/place'
   
+  const date = new Date().toLocaleDateString()
+  const time = new Date().toLocaleTimeString()
   async function savePlace(e) {
     e.preventDefault();
     if (
@@ -57,7 +59,11 @@ const Hosting = () => {
         bath,
         bedroom,
         price,
+        createdAt: new Date().toISOString(),
+        date,
+        time,
       };
+      console.log(placeData);
       axios
         .post(endpoint, placeData)
         .then((response) => {
@@ -76,6 +82,7 @@ const Hosting = () => {
           setAddress('');
           setDescription('');
           setPerks('');
+          setExtraInfo('')
         } else {
           Swal.fire({
             icon: 'error',

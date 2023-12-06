@@ -56,6 +56,7 @@ const Signup = () => {
 
   let endpoint = 'https://captain-bnb.onrender.com/user/signup';
 
+  
   const onSubmit = (data) => {
     console.log(data);
     setLoading(true)
