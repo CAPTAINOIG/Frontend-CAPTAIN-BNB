@@ -8,7 +8,8 @@ const Userplace = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = 'http://localhost:3000/user/getPlace';
+        // const url = 'http://localhost:3000/user/getPlace';
+        const url = 'https://captain-bnb.onrender.com/user/getPlace'
         const response = await axios.get(url);
         console.log(response);
         setUsers(response.data.users); // Assuming the response contains an array of users

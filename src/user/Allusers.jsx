@@ -8,7 +8,8 @@ const Allusers = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = 'http://localhost:3000/user/getUser';
+        // const url = 'http://localhost:3000/user/getUser';
+        const url = 'https://captain-bnb.onrender.com/user/getUser'
         const response = await axios.get(url);
         setUsers(response.data.users); // Assuming the response contains an array of users
       } catch (error) {
