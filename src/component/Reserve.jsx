@@ -285,7 +285,7 @@ const Reserve = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div>#{price}</div>
+                            <div>#{price ? price : ""}</div>
                         </div>
                         <div className='flex lg:gap-[50%] gap-32 my-2'>
                             <div>Cleaning fee</div>
