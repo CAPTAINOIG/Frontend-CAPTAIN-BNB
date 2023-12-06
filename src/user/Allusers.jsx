@@ -1,29 +1,33 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const Allusers = () => {
+const AllUsers = () => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const url = 'http://localhost:3000/user/getUser';
-        const url = 'https://captain-bnb.onrender.com/user/getUser'
+        const url = 'https://captain-bnb.onrender.com/user/getUser';
         const response = await axios.get(url);
-        setUsers(response.data.users); // Assuming the response contains an array of users
+        setUsers(response.data.users);
       } catch (error) {
-        setError(error);
+        setError(error.message || 'Failed to fetch users');
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
+  }, []);
 
   return (
     <div>
-      {error ? (
-        <p>Failed to fetch users. Error: {error.message}</p>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Failed to fetch users. Error: {error}</p>
       ) : (
         <div>
           <table className="border-collapse border lg:ms-[30%] border-gray-400 mt-4">
@@ -39,14 +43,13 @@ const Allusers = () => {
             </thead>
             <tbody>
               {users.map((user, i) => (
-                <tr key={i} className={i % 2 === 0 ? 'bg-gray-100' : ''}>
+                <tr key={i}>
                   <td className="border border-gray-400 px-4 py-2">{user._id}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.firstName}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.lastName}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.email}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.phone}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.registrationDate}</td>
-
                 </tr>
               ))}
             </tbody>
@@ -57,4 +60,4 @@ const Allusers = () => {
   );
 };
 
-export default Allusers;
+export default AllUsers;

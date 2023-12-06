@@ -61,7 +61,7 @@ function App() {
       <Route path="/reset" element={<Resetpassword/>} />
       <Route path="/intro" element={<Intro/>} />
       <Route path="admin-captain-bnb-dev-oig/*" element={<Rootlayout />} />
-      <Route path="/allusers" element={<Allusers />} />
+      
       <Route path="/userplace" element={<Userplace />} />
       <Route path="/" element={<Homepage />} />
       <Route path="*" element={<Errorpage/>} />

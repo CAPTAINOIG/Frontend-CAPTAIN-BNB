@@ -4,8 +4,8 @@ import Sidebar from '../Side/Sidebar';
 import { AppContext } from '../context/Dashboard';
 import { FullScreen } from 'react-full-screen';
 import { Route, Routes } from 'react-router-dom';
-import Allusers from '../user/Allusers';
-import Homepage from '../user/Homepage';
+// import Allusers from '../user/Allusers';
+// import Homepage from '../user/Homepage';
 
 const Rootlayout = ({ children }) => {
   const { handle, sideBarOpen } = useContext(AppContext);
@@ -26,10 +26,7 @@ const Rootlayout = ({ children }) => {
           </div>
           </FullScreen>
 
-          <Routes>
-            <Route path='/allusers' element={<Allusers/>}/>
-            <Route path='/' element={<Homepage/>}/>
-          </Routes>
+        
     </>
   );
 };
