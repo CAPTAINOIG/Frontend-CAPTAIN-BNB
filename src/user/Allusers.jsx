@@ -36,8 +36,8 @@ const AllUsers = () => {
                 <th className="border border-gray-400 px-4 py-2">ID</th>
                 <th className="border border-gray-400 px-4 py-2">First Name</th>
                 <th className="border border-gray-400 px-4 py-2">Last Name</th>
+                <th className="border border-gray-400 px-4 py-2">EMAIL</th>
                 <th className="border border-gray-400 px-4 py-2">PHONE</th>
-                <th className="border border-gray-400 px-4 py-2">Email</th>
                 <th className="border border-gray-400 px-4 py-2">REGISTRATION DATE</th>
               </tr>
             </thead>
