@@ -9,7 +9,7 @@ import Support from './component/Support'
 const Layout = () => {
     return (
         <section>
-            <div className=' fixed top-0 bg-white dark:bg-gray-900 z-20 dark:bg-gray-900 dark:text-white'>
+            <div className=' fixed top-0 bg-white dark:bg-gray-900 z-20 text-[90%] dark:text-white'>
                 <Header className='' />
                 <Display />
             </div>

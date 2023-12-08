@@ -73,11 +73,11 @@ const Lease = () => {
   return (
     <section>
 
-    <div className=" dark:bg-pink-800 bg-gray-800 hover:bg-red-900 dark:hover:bg-gray-500 rounded-full fixed lg:mt-[30%] mt-[120%] lg:ms-[45%] ms-28 justify-center z-50 flex">
+    <div className="text-[90%] dark:bg-pink-800 bg-gray-800 hover:bg-red-900 dark:hover:bg-gray-500 rounded-full fixed lg:mt-[30%] mt-[120%] lg:ms-[45%] ms-28 justify-center z-50 flex">
       <button onClick={seeAll} className='p-3  text-white -bottom-0 -z-[100px]'>show map</button>
       <span className='mt-4 me-2'><CiMap size={20} className='align-items-center  text-white'/></span>
   </div>
-      <div className='grid lg:grid-cols-4 md:grid-cols-2 mb-5 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[11%] mt-[25%]  font-serif'>
+      <div className='grid text-[90%] lg:grid-cols-4 md:grid-cols-2 mb-5 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[11%] mt-[25%]  font-serif'>
         {Leaselist.map((item, i) => (
           <div key={i} className=''>
             <div className='container lg:mt-10 mt-10 '>

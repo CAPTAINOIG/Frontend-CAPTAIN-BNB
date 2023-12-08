@@ -87,7 +87,7 @@ const Leasedetail = () => {
      <Leasedetailheader/>
       
 
-      <section className='px-10'>
+      <section className='px-10 text-[90%]'>
         <div className='text-2xl font-bold font-serif lg:ms-20'>{address}</div>
        <div className='grid grid-cols-2 px-20 lg:mt-4'>
        <img className='rounded-lg lg:block hidden' src={image} alt="" />
@@ -98,7 +98,7 @@ const Leasedetail = () => {
        <img className='rounded-lg' src={imager} alt="" />
        </div>
        </div>
-       <p className='lg:ms-20 font-bold font-serif text-2xl mt-5'>Entire Villa in {address}</p>
+       <p className='lg:ms-20 font-serif mt-5 text-[90%]'>Entire Villa in {address}</p>
        <div className='flex gap-5 text-sm lg:ms-20 my-5 font-serif'>
           <p>{guests} 😎 Guests</p>
           <p>{bedroom} 🌳Bedroom</p>
