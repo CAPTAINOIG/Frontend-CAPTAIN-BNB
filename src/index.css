@@ -5,6 +5,8 @@
 
 
 
+
+
 .background{
     background-image: url(./assets/image/paris.jpg);
     position: relative;
@@ -60,7 +62,7 @@
 }
 
 
-@media (max-width:900px) {
+@media (max-width:1000px) {
     #week, #Captainbnb, #filter, #display, #detail{
         display: none;
     }

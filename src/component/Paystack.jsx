@@ -123,13 +123,13 @@ const Paystack = () => {
                         <div>
                             <p>captainbnb service</p>
                         </div>
-                        <div>${service}</div>
+                        <div>#{service}</div>
                     </div>
                     <div className='flex lg:gap-[45%] gap-[50%]'>
                         <div>
                             <p>cleaning service</p>
                         </div>
-                        <div>${cleaning}</div>
+                        <div>#{cleaning}</div>
                     </div>
                     <div className='flex mt-8 font-bold lg:gap-[45%] gap-[45%]'>
                         <div>

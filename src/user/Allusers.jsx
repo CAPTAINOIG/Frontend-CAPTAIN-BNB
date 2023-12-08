@@ -11,6 +11,7 @@ const AllUsers = () => {
       try {
         const url = 'https://captain-bnb.onrender.com/user/getUser';
         const response = await axios.get(url);
+        // console.log(response);
         setUsers(response.data.users);
       } catch (error) {
         setError(error.message || 'Failed to fetch users');
@@ -21,6 +22,57 @@ const AllUsers = () => {
 
     fetchData();
   }, []);
+
+  // const removeItem = async(userId)=>{
+  //   const url = 'http://localhost:3000/user/deleteModel';
+  //   try {
+  //     const response = await axios.delete(url, { data: { id: userId } });
+  //     console.log(response);
+  //   } catch (error) {
+      
+  //   }
+
+  //   const updateItem = async (itemId, updatedData) => {
+  //     const url = 'http://localhost:3000/user/updateModel';
+  //     try {
+  //       const response = await axios.put(url, { id: itemId, data: updatedData });
+  //       console.log(response);
+  //       // Assuming you're using React, here you'd update your state or UI to reflect the changes made
+  //     } catch (error) {
+  //       // Handle errors if necessary
+  //     }
+  //   };
+    
+  // }
+
+
+  const removeItem = async (userId) => {
+    const deleteUrl = 'http://localhost:3000/user/deleteModel';
+    try {
+      const deleteResponse = await axios.delete(deleteUrl, { data: { id: userId } });
+      console.log(deleteResponse);
+  
+      if (deleteResponse.status === 200) {
+        // If the deletion was successful, trigger the update immediately
+        const updatedData = {}; // Provide the updated data here
+        await updateItem(userId, updatedData);
+      }
+    } catch (error) {
+      // Handle errors if necessary
+    }
+  };
+  
+  const updateItem = async (itemId, updatedData) => {
+    const updateUrl = 'http://localhost:3000/user/updateModel';
+    try {
+      const updateResponse = await axios.put(updateUrl, { id: itemId, data: updatedData });
+      console.log(updateResponse);
+      // Handle UI updates or other actions based on the update response
+    } catch (error) {
+      // Handle errors if necessary
+    }
+  };
+  
 
   return (
     <div>
@@ -50,6 +102,7 @@ const AllUsers = () => {
                   <td className="border border-gray-400 px-4 py-2">{user.email}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.phone}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.registrationDate}</td>
+                  <button onClick={()=> removeItem(user._id)}>Delete</button>
                 </tr>
               ))}
             </tbody>
