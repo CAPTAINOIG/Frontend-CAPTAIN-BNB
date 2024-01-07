@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GiOakLeaf } from 'react-icons/gi'
 import { useState } from 'react'
-import {FaSnapchatGhost } from 'react-icons/fa'
-import {MdLocationOn, MdLocalBar} from 'react-icons/md'
+import { FaSnapchatGhost } from 'react-icons/fa'
+import { MdLocationOn, MdLocalBar } from 'react-icons/md'
 const Guestfavorite = () => {
     let leaseDetails = JSON.parse(localStorage.getItem('lease'))
     // console.log(leaseDetails.hostName);
@@ -23,7 +23,7 @@ const Guestfavorite = () => {
         setRating(leaseDetails.rating)
         setMessage(leaseDetails.message)
         setAbout(leaseDetails.about)
-        
+
     }, [])
 
     return (
@@ -52,37 +52,35 @@ const Guestfavorite = () => {
                     <div>About: {about}</div>
                 </div>
             </div>
-
+            <div className='lg:ms-28 ms-5 flex gap-7 my-5'>
+                <div>
+                    <FaSnapchatGhost className='mt-2' />
+                </div>
+                <div className='font-serif text-sm'>
+                    <div>{hostName}  is a Superhost</div>
+                    <p>Superhosts are experienced, highly rated Hosts.</p>
+                    <p></p>
+                </div>
+            </div>
+            <div className='lg:ms-28 ms-5 flex gap-7 my-5'>
+                <div>
+                    <MdLocationOn className='mt-2' />
+                </div>
+                <div className='font-serif text-sm'>
+                    <div>Great location</div>
+                    <div>100% of recent guests gave the location a {rating}-star rating.</div>
+                </div>
+            </div>
 
             <div className='lg:ms-28 ms-5 flex gap-7 my-5'>
-            <div>
-                <FaSnapchatGhost className='mt-2'/>
-            </div>
-            <div className='font-serif text-sm'>
-                <div>{hostName}  is a Superhost</div>
-                <p>Superhosts are experienced, highly rated Hosts.</p>
-                <p></p>
-            </div>
-        </div>
-        <div className='lg:ms-28 ms-5 flex gap-7 my-5'>
-        <div>
-          <MdLocationOn className='mt-2'/>
-        </div>
-        <div className='font-serif text-sm'>
-            <div>Great location</div>
-            <div>100% of recent guests gave the location a {rating}-star rating.</div>
-        </div>
-    </div>
+                <div>
+                    <MdLocalBar />
+                </div>
+                <div className='font-serif text-sm '>
+                    <div>Free cancellation before December 6</div>
 
-    <div className='lg:ms-28 ms-5 flex gap-7 my-5'>
-        <div>
-          <MdLocalBar/>
-        </div>
-        <div className='font-serif text-sm '>
-            <div>Free cancellation before December 6</div>
-           
-        </div>
-    </div>
+                </div>
+            </div>
             <hr />
         </section>
     )

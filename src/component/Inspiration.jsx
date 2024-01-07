@@ -406,9 +406,9 @@ const Inspiration = () => {
                 </Link>
             </div>
 
-            <hr  className='mt-10'/>
+            <hr className='mt-10' />
         </div>
-        
+
     )
 }
 

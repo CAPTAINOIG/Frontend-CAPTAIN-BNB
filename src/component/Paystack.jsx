@@ -133,7 +133,7 @@ const Paystack = () => {
                     </div>
                     <div className='flex mt-8 font-bold lg:gap-[45%] gap-[45%]'>
                         <div>
-                            <p>Total (USD)</p>
+                            <p>Total (#)</p>
                         </div>
                         <div>#{usdFinalAmount}</div>
                     </div>
