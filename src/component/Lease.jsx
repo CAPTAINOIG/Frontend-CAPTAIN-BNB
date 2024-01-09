@@ -115,7 +115,7 @@ const Lease = () => {
 
                       <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
                       <div className='card-body'>
-                        <p>{item.address}</p>
+                        <p className='font-bold'>{item.address}</p>
                         <p>{item.view}</p>
                         <p>{item.date}</p>
                         <p>#{item.amount} per night</p>
