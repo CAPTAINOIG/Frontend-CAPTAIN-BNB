@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { add, decrease, decrement, increase, increment, minus } from '../Redux/counterSlice'
 import Inspiration from './Inspiration'
 import Support from './Support'
-
+import Swal from 'sweetalert2'
 
 
 
@@ -117,14 +117,18 @@ const Reserve = () => {
         }
     };
 
-    const check =()=>{
-        if(checkIn === "" || checkOut === ""){
-            alert("select date")
-        }
-        else{
-            navigate("/dashboard")
+    const check = () => {
+        if (checkIn === "" || checkOut === "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select a date!',
+            });
+        } else {
+            navigate("/dashboard");
         }
     }
+    
     return (
         <>
             <div className='text-lg lg:ms-28 ms-10 font-serif'>What this place offers</div>
@@ -218,7 +222,7 @@ const Reserve = () => {
                                 <FaArrowUp className='hidden cursor-pointer' onClick={up} id='up' />
                             </div>
                         </div>
-                        <div className='hidden border rounded-lg border border-gray-900 shadow-md my-2 p-2' id='adults'>
+                        <div className='hidden rounded-lg border border-gray-900 shadow-md my-2 p-2' id='adults'>
                             <div className='flex gap-20 my-3'>
                                 <div>
                                     <p>Adults</p>
@@ -258,7 +262,7 @@ const Reserve = () => {
                             <Link className='underline' to="" onClick={close} id='close'>Close</Link>
                         </div>
                         <div className='text-center  mt-5'>
-                            <div onClick={check} className='bg-pink-600 px-[30%] p-2 rounded hover:bg-pink-900 text-white text-xl'>CONTINUE</div>
+                            <div onClick={check} className='bg-pink-600 px-[30%] p-2 rounded hover:bg-pink-900 cursor-pointer text-white text-xl'>CONTINUE</div>
                         </div>
                         <div className='flex lg:gap-[35%] gap-32 mt-3 my-2'>
                             <div>

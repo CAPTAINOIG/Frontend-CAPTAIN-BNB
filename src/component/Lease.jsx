@@ -132,27 +132,29 @@ const Lease = () => {
 
 
       <Map />
-      <div className='text-center my-5 dark:bg-gray-900'>
+      <div className='text-center my-2 dark:bg-gray-900'>
         <button id='right' onClick={explore} className='font-bold text-white rounded bg-pink-900 p-3'>Explore more</button>
       </div>
 
-      <div id='dow' className='hidden grid lg:grid-cols-4 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[11%] mt-[25%]  font-serif'>
-        {Leaselist.map((item, i) => (
-          <div key={i} className=''>
-            <div className='container lg:mt-10 mt-10 '>
-              <div className='cursor-pointer'>
-                <Slider {...settings} className=''>
-                  {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
-                    <div key={index} className='card'>
-                      <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
-                      <div className='card-body'>
-                        <p>{item.address}</p>
-                        <p>{item.view}</p>
-                        <p>{item.date}</p>
-                        <p>#{item.amount}</p>
-                      </div>
+      <div id='dow' className='hidden grid lg:grid-cols-4 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[3%] mt-[5%] font-serif'>
+      {shuffledLeaseList.map((item, i) => (
+        <div key={i} className=''>
+          <div className='container'>
+            <div className='cursor-pointer'>
+              <Slider {...settings} className=''>
+                {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
+                  <div key={index} className='card'>
+
+                    <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
+                    <div className='card-body'>
+                      <p className='font-bold'>{item.address}</p>
+                      <p>{item.view}</p>
+                      <p>{item.date}</p>
+                      <p>#{item.amount} per night</p>
+                      <StarRating rating={item.rating} />
                     </div>
-                  ))}
+                  </div>
+                ))}
                 </Slider>
               </div>
             </div>

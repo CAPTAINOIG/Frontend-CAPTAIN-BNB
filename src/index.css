@@ -3,10 +3,6 @@
 @import 'tailwindcss/utilities';
 
 
-
-
-
-
 .background{
     background-image: url(./assets/image/paris.jpg);
     position: relative;

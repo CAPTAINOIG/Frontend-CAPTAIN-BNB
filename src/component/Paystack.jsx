@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CountrySelect from './CountrySelect'
 import { FaStar } from 'react-icons/fa'
 import PaystackPop from '@paystack/inline-js'
+import Swal from 'sweetalert2'
 
 const Paystack = () => {
     let leaseDetails = JSON.parse(localStorage.getItem('lease'))
@@ -59,13 +60,15 @@ const Paystack = () => {
 
 
     const payWithPayStack = (e) => {
-        
+        e.preventDefault();
         const publicKey = import.meta.env.VITE_APP_PAYSTACK_KEY;
-
         if (email === "" || address === "" || phone === "" || city === "") {
-            alert('all input field are required')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'All inputs are required!',
+            });
         } else {
-            e.preventDefault();
             const paystack = new PaystackPop();
             paystack.newTransaction({
                 key: publicKey,
@@ -117,7 +120,7 @@ const Paystack = () => {
                         <div>
                             <p>#{amount} * {dayDiff} nights</p>
                         </div>
-                        <div>#{totalAmount}</div>
+                        <div>#{total}</div>
                     </div>
                     <div className='flex lg:gap-[40%] my-3 gap-[45%]'>
                         <div>
