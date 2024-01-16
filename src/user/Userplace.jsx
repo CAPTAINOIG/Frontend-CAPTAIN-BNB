@@ -21,33 +21,11 @@ const Userplace = () => {
     fetchData();
   }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
 
-  
-
-  
-  // const deletePlace = async (userId) => {
-  //   // console.log(users[0]);
-  //   const url = 'http://localhost:3000/user/deleteUserPlace';
-  //   // console.log(userId);
-  //   try {
-  //     const response = await axios.delete(url, { data: { _id: userId } });
-  //     console.log(response);
-  
-  //     if (response.status === 200) {
-  //       setUsers([...users.filter(eachUser=> eachUser._id !== userId)])
-  //       const updatedData = {}; // Provide the updated data here
-  //       await updateItem(userId, updatedData);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     // Handle errors if necessary
-  //   }
-  // };
-
 
 
   const removeItem = async (userId) => {
     // console.log(users[0]);
-    const url = 'http://localhost:3000/user/deleteUserPlace';
+    const url = 'https://captain-bnb.onrender.com/user/deleteUserPlace';
     try {
       const deleteResponse = await axios.delete(url, { data: { id: userId } });
       console.log(deleteResponse);

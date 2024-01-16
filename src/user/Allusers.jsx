@@ -10,6 +10,7 @@ const AllUsers = () => {
     const fetchData = async () => {
       try {
         const url = 'https://captain-bnb.onrender.com/user/getUser';
+        
         const response = await axios.get(url);
         // console.log(response);
         setUsers(response.data.users);
@@ -28,7 +29,7 @@ const AllUsers = () => {
 
   const removeItem = async (userId) => {
     // console.log(users[0]);
-    const deleteUrl = 'http://localhost:3000/user/deleteModel';
+    const deleteUrl = 'https://captain-bnb.onrender.com/user/deleteModel';
     try {
       const deleteResponse = await axios.delete(deleteUrl, { data: { id: userId } });
       console.log(deleteResponse);
