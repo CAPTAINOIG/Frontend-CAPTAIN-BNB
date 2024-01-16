@@ -22,44 +22,43 @@ const Userplace = () => {
   }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
 
   
+
+  
   // const deletePlace = async (userId) => {
+  //   // console.log(users[0]);
   //   const url = 'http://localhost:3000/user/deleteUserPlace';
   //   // console.log(userId);
   //   try {
-  //     const response = await axios.delete(url, { data: { id: userId } });
+  //     const response = await axios.delete(url, { data: { _id: userId } });
   //     console.log(response);
-  //     // Perform actions after successful deletion, such as updating the UI
+  
+  //     if (response.status === 200) {
+  //       setUsers([...users.filter(eachUser=> eachUser._id !== userId)])
+  //       const updatedData = {}; // Provide the updated data here
+  //       await updateItem(userId, updatedData);
+  //     }
   //   } catch (error) {
   //     console.log(error);
-  //   }
-  // };
-  // const updateItem = async (itemId, updatedData) => {
-  //   const updateUrl = 'http://localhost:3000/user/update';
-  //   try {
-  //     const updateResponse = await axios.put(updateUrl, { id: itemId, data: updatedData });
-  //     console.log(updateResponse);
-  //     // Handle UI updates or other actions based on the update response
-  //   } catch (error) {
   //     // Handle errors if necessary
   //   }
   // };
 
 
-  
-  const deletePlace = async (userId) => {
+
+  const removeItem = async (userId) => {
+    // console.log(users[0]);
     const url = 'http://localhost:3000/user/deleteUserPlace';
-    // console.log(userId);
     try {
-      const response = await axios.delete(url, { data: { id: userId } });
-      console.log(response);
+      const deleteResponse = await axios.delete(url, { data: { id: userId } });
+      console.log(deleteResponse);
   
-      if (response.status === 200) {
-        // If deletion was successful, trigger the update immediately
+      if (deleteResponse.status === 200) {
+        setUsers([...users.filter(eachUser=> eachUser._id !== userId)])
+        // If the deletion was successful, trigger the update immediately
         const updatedData = {}; // Provide the updated data here
         await updateItem(userId, updatedData);
       }
     } catch (error) {
-      console.log(error);
       // Handle errors if necessary
     }
   };
@@ -75,6 +74,10 @@ const Userplace = () => {
       // Handle errors if necessary
     }
   };
+
+
+
+  
   
   
   return (
@@ -108,7 +111,8 @@ const Userplace = () => {
                   <td style={{ border: '1px solid #D1D5DB', padding: '8px' }}>{user.date}</td>
                   <td style={{ border: '1px solid #D1D5DB', padding: '8px' }}>{user.time}</td>
                   <td style={{ border: '1px solid #D1D5DB', padding: '8px' }}>{user.price}</td>
-                  <button onClick={() => deletePlace(user._id)}>Delete</button>
+                  <button onClick={() => removeItem(user._id)}>Delete</button>
+                  
                 </tr>
               ))}
             </tbody>

@@ -23,36 +23,18 @@ const AllUsers = () => {
     fetchData();
   }, []);
 
-  // const removeItem = async(userId)=>{
-  //   const url = 'http://localhost:3000/user/deleteModel';
-  //   try {
-  //     const response = await axios.delete(url, { data: { id: userId } });
-  //     console.log(response);
-  //   } catch (error) {
-      
-  //   }
 
-  //   const updateItem = async (itemId, updatedData) => {
-  //     const url = 'http://localhost:3000/user/updateModel';
-  //     try {
-  //       const response = await axios.put(url, { id: itemId, data: updatedData });
-  //       console.log(response);
-  //       // Assuming you're using React, here you'd update your state or UI to reflect the changes made
-  //     } catch (error) {
-  //       // Handle errors if necessary
-  //     }
-  //   };
-    
-  // }
 
 
   const removeItem = async (userId) => {
+    // console.log(users[0]);
     const deleteUrl = 'http://localhost:3000/user/deleteModel';
     try {
       const deleteResponse = await axios.delete(deleteUrl, { data: { id: userId } });
       console.log(deleteResponse);
   
       if (deleteResponse.status === 200) {
+        setUsers([...users.filter(eachUser=> eachUser._id !== userId)])
         // If the deletion was successful, trigger the update immediately
         const updatedData = {}; // Provide the updated data here
         await updateItem(userId, updatedData);
