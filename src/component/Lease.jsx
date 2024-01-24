@@ -43,10 +43,8 @@ const Lease = () => {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
       }
-
       return array;
     };
-
     const shuffledArray = shuffleArray([...Leaselist]);
     setShuffledLeaseList(shuffledArray);
     setLoader(false)
@@ -78,7 +76,6 @@ const Lease = () => {
   };
 
   // Function to handle lease selection
-
   const leaseId = (e) => {
     navigate('/captainoigdetail');
     localStorage.setItem('lease', JSON.stringify(e));
@@ -87,8 +84,6 @@ const Lease = () => {
   const seeAll = () => {
     navigate('/map')
   }
-
-
 
   // Function to toggle display for explore button
   const explore = () => {
@@ -104,8 +99,8 @@ const Lease = () => {
     <section>
       {loader ? (
         // Loader component or loading message
-        <div className="loader mt-[15%]">
-          <img src={gif} alt="Loading" width={200} className="mx-auto" />
+        <div className="loader lg:mt-[15%] mt-[50%] my-28">
+          <img src={gif} alt="Loading" width={50} className="mx-auto" />
         </div>
       ) : (
         <>

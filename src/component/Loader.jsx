@@ -21,7 +21,7 @@ const Loader = () => {
     <div>
       {loading ? (
         <div className="loading-container">
-          <img
+          <img id='img'
             src={loader}
             alt="Loading..."
             style={{ display: 'block', margin: '0 auto', width: '250px', height: '250px', marginTop:'200px' }}
@@ -30,7 +30,6 @@ const Loader = () => {
         </div>
       ) : (
         <div>
-          {/* You can add additional content or components here */}
           <Layout />
         </div>
       )}

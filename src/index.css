@@ -85,4 +85,10 @@
         margin-top: -50px;
         padding-left: 50px;
     }
+    #img{
+        margin-top: 500px;
+        width: '150px';
+        height: '150px';
+         
+    }
 }
