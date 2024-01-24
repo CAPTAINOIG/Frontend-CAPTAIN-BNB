@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import StarRating from './StarRating';
 import Map from './Map';
 import { CiMap } from 'react-icons/ci'
+import gif from '../assets/image/gif.gif'
 
 // Define the Arrow component
 function Arrow(props) {
@@ -21,6 +22,7 @@ function Arrow(props) {
 
 const Lease = () => {
   const navigate = useNavigate();
+  const [loader, setLoader] = useState(true)
   const [shuffledLeaseList, setShuffledLeaseList] = useState([]);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ const Lease = () => {
 
     const shuffledArray = shuffleArray([...Leaselist]);
     setShuffledLeaseList(shuffledArray);
+    setLoader(false)
   }, [Leaselist]);
 
   // Slider settings
@@ -99,70 +102,78 @@ const Lease = () => {
 
   return (
     <section>
-
-      <div className="text-[90%] dark:bg-pink-800 bg-gray-800 hover:bg-red-900 dark:hover:bg-gray-500 rounded-full fixed lg:mt-[30%] mt-[120%] lg:ms-[45%] ms-28 justify-center z-50 flex">
-        <button onClick={seeAll} className='p-3  text-white -bottom-0 -z-[100px]'>show map</button>
-        <span className='mt-4 me-2'><CiMap size={20} className='align-items-center  text-white' /></span>
-      </div>
-      <div className='grid text-[90%] lg:grid-cols-4 md:grid-cols-2 mb-5 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[11%] mt-[25%]  font-serif'>
-        {shuffledLeaseList.map((item, i) => (
-          <div key={i} className=''>
-            <div className='container lg:mt-10 mt-10 '>
-              <div className='cursor-pointer'>
-                <Slider {...settings} className=''>
-                  {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
-                    <div key={index} className='card'>
-
-                      <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
-                      <div className='card-body'>
-                        <p className='font-bold'>{item.address}</p>
-                        <p>{item.view}</p>
-                        <p>{item.date}</p>
-                        <p>#{item.amount} per night</p>
-                        <StarRating rating={item.rating} />
-                      </div>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            </div>
+      {loader ? (
+        // Loader component or loading message
+        <div className="loader mt-[15%]">
+          <img src={gif} alt="Loading" width={200} className="mx-auto" />
+        </div>
+      ) : (
+        <>
+          <div className="text-[90%] dark:bg-pink-800 bg-gray-800 hover:bg-red-900 dark:hover:bg-gray-500 rounded-full fixed lg:mt-[30%] mt-[120%] lg:ms-[45%] ms-28 justify-center z-50 flex">
+            <button onClick={seeAll} className='p-3  text-white -bottom-0 -z-[100px]'>show map</button>
+            <span className='mt-4 me-2'><CiMap size={20} className='align-items-center  text-white' /></span>
           </div>
-        ))}
-      </div>
 
-
-      <Map />
-      <div className='text-center my-2 dark:bg-gray-900'>
-        <button id='right' onClick={explore} className='font-bold text-white rounded bg-pink-900 p-3'>Explore more</button>
-      </div>
-
-      <div id='dow' className='hidden grid lg:grid-cols-4 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[3%] mt-[5%] font-serif'>
-      {shuffledLeaseList.map((item, i) => (
-        <div key={i} className=''>
-          <div className='container'>
-            <div className='cursor-pointer'>
-              <Slider {...settings} className=''>
-                {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
-                  <div key={index} className='card'>
-
-                    <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
-                    <div className='card-body'>
-                      <p className='font-bold'>{item.address}</p>
-                      <p>{item.view}</p>
-                      <p>{item.date}</p>
-                      <p>#{item.amount} per night</p>
-                      <StarRating rating={item.rating} />
-                    </div>
+          <div className='grid text-[90%] lg:grid-cols-4 md:grid-cols-2 mb-5 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[11%] mt-[25%]  font-serif'>
+            {shuffledLeaseList.map((item, i) => (
+              <div key={i} className=''>
+                <div className='container lg:mt-10 mt-10 '>
+                  <div className='cursor-pointer'>
+                    <Slider {...settings} className=''>
+                      {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
+                        <div key={index} className='card'>
+                          <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
+                          <div className='card-body'>
+                            <p className='font-bold'>{item.address}</p>
+                            <p>{item.view}</p>
+                            <p>{item.date}</p>
+                            <p>#{item.amount} per night</p>
+                            <StarRating rating={item.rating} />
+                          </div>
+                        </div>
+                      ))}
+                    </Slider>
                   </div>
-                ))}
-                </Slider>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+
+          <Map />
+
+          <div className='text-center my-2 dark:bg-gray-900'>
+            <button id='right' onClick={explore} className='font-bold text-white rounded bg-pink-900 p-3'>Explore more</button>
+          </div>
+
+          <div id='dow' className='hidden grid lg:grid-cols-4 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[3%] mt-[5%] font-serif'>
+            {shuffledLeaseList.map((item, i) => (
+              <div key={i} className=''>
+                <div className='container'>
+                  <div className='cursor-pointer'>
+                    <Slider {...settings} className=''>
+                      {[item.image, item.imagee, item.imager, item.imaged].map((image, index) => (
+                        <div key={index} className='card'>
+                          <img onClick={() => leaseId(item)} src={image} alt="" className='w-100 rounded-lg' />
+                          <div className='card-body'>
+                            <p className='font-bold'>{item.address}</p>
+                            <p>{item.view}</p>
+                            <p>{item.date}</p>
+                            <p>#{item.amount} per night</p>
+                            <StarRating rating={item.rating} />
+                          </div>
+                        </div>
+                      ))}
+                    </Slider>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </section>
-  );
-};
+  )
+
+}
 
 export default Lease;

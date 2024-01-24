@@ -10,7 +10,7 @@ const Layout = () => {
     return (
         <section>
             <div className=' fixed top-0 bg-white dark:bg-gray-900 z-20 text-[90%] dark:text-white'>
-                <Header className='' />
+                <Header />
                 <Display />
             </div>
             <div className='dark:bg-gray-900 dark:text-white'>

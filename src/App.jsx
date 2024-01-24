@@ -19,6 +19,7 @@ import Rootlayout from './layout/Rootlayout'
 import Allusers from './user/Allusers'
 import Homepage from './user/Homepage'
 import Userplace from './user/Userplace'
+import Loader from './component/Loader'
 
 
 
@@ -50,7 +51,8 @@ function App() {
   return (
     <>
     <Routes>  
-      <Route path='/' element={<Layout/>}/>
+    <Route path='/' element={<Loader/>}/>
+      <Route path='/lay' element={<Layout/>}/>
       <Route path='/map' element={<Map/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/captainoigdetail' element={<Arrow/>}/>
