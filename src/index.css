@@ -57,6 +57,9 @@
     color: palevioletred;
 }
 
+#capimage{
+    background-color: aqua;
+}
 
 @media (max-width:1000px) {
     #week, #Captainbnb, #filter, #display, #detail{

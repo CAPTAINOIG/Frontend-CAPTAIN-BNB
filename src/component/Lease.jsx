@@ -7,7 +7,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import StarRating from './StarRating';
 import Map from './Map';
 import { CiMap } from 'react-icons/ci'
-import gif from '../assets/image/gif.gif'
+// import gif from '../assets/image/gif.gif'
+// import Loader from './Loader';
+import Load from './Load';
 
 // Define the Arrow component
 function Arrow(props) {
@@ -22,7 +24,7 @@ function Arrow(props) {
 
 const Lease = () => {
   const navigate = useNavigate();
-  const [loader, setLoader] = useState(true)
+  // const [loader, setLoader] = useState(true)
   const [shuffledLeaseList, setShuffledLeaseList] = useState([]);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const Lease = () => {
     };
     const shuffledArray = shuffleArray([...Leaselist]);
     setShuffledLeaseList(shuffledArray);
-    setLoader(false)
+    // setLoader(false)
   }, [Leaselist]);
 
   // Slider settings
@@ -97,12 +99,8 @@ const Lease = () => {
 
   return (
     <section>
-      {loader ? (
-        // Loader component or loading message
-        <div className="loader lg:mt-[15%] mt-[50%] my-28">
-          <img src={gif} alt="Loading" width={50} className="mx-auto" />
-        </div>
-      ) : (
+    <Load/>
+     
         <>
           <div className="text-[90%] dark:bg-pink-800 bg-gray-800 hover:bg-red-900 dark:hover:bg-gray-500 rounded-full fixed lg:mt-[30%] mt-[120%] lg:ms-[45%] ms-28 justify-center z-50 flex">
             <button onClick={seeAll} className='p-3  text-white -bottom-0 -z-[100px]'>show map</button>
@@ -165,7 +163,7 @@ const Lease = () => {
             ))}
           </div>
         </>
-      )}
+     
     </section>
   )
 
