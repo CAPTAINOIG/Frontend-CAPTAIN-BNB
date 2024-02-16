@@ -5,7 +5,9 @@ import { BsPersonWorkspace } from 'react-icons/bs'
 export default function Perks({selected,onChange}) {
     function handleCbClick(ev) {
       const {checked,name} = ev.target;
+      // console.log(name);
       if (checked) {
+        // here, the name parameter is saved to selected then the selected will be used to filter. in form of array
         onChange([...selected,name]);
         
       } else {
