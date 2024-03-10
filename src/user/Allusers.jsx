@@ -47,6 +47,10 @@ const AllUsers = () => {
     }
   };
 
+  const editItem =()=>{
+    
+  }
+
 
   return (
     <div>
@@ -78,6 +82,8 @@ const AllUsers = () => {
                   <td className="border border-gray-400 px-4 py-2">{user.phone}</td>
                   <td className="border border-gray-400 px-4 py-2">{user.registrationDate}</td>
                   <button onClick={() => removeItem(user._id)}>Delete</button>
+                  <button onClick={() => editItem(user._id)}>Edit</button>
+
                 </tr>
               ))}
             </tbody>

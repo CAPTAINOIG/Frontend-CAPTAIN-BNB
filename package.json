@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
+    "@nextui-org/react": "^2.2.10",
     "@paystack/inline-js": "^2.13.0",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",

@@ -2,10 +2,12 @@ import { TbToolsKitchen2 } from 'react-icons/tb'
 import { MdOutlinePool } from 'react-icons/md'
 import { FaHotTub } from 'react-icons/fa'
 import { BsPersonWorkspace } from 'react-icons/bs'
+
+
 export default function Perks({selected,onChange}) {
     function handleCbClick(ev) {
-      const {checked,name} = ev.target;
-      // console.log(name);
+      const {checked, name} = ev.target;
+      // console.log(name);z
       if (checked) {
         // here, the name parameter is saved to selected then the selected will be used to filter. in form of array
         onChange([...selected,name]);

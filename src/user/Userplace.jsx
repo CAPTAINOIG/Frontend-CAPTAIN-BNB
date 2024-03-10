@@ -1,10 +1,30 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 
 const Userplace = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState('')
+  // const [editedUser, setEditedUser] = useState('');
+  const [nameOfHost, setNameOfHost] = useState('')
+  const [address, setAddress] = useState('')
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [perks, setPerks] = useState('')
+  const [editingUser, setEditingUser] = useState(null);
+
+
+
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,13 +67,54 @@ const Userplace = () => {
     }
   };
 
+
+  
+  const editItem = (user) => {
+    setEditingUser(user);
+    setNameOfHost(user.nameOfHost)
+    setAddress(user.address)
+    setDescription(user.description)
+    setPerks(user.perks.join(', '));
+    setPrice(user.price)
+    onOpen();
+  };
+
+
+
+
+  const editedItem = async () => {
+    try {
+      if (!editingUser) {
+        console.error('No user selected for editing');
+        return;
+      }
+      // const url = `http://localhost:3000/user/editPlace/:id${editingUser.id}`;
+      const url = `http://localhost:3000/user/editPlace/${editingUser._id}`;
+      // console.log(url);
+      const userData = { nameOfHost, address, description, perks: perks.split(', '), price };
+      const editResponse = await axios.put(url, userData);
+      console.log(editResponse);
+
+      if (editResponse.status === 200) {
+        const updatedUser = editResponse.data.user;
+        // this is to replace the data in users
+        setUsers(users.map(user => user._id === updatedUser._id ? updatedUser : user));
+        onClose();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
   return (
     <div>
       {error ? (
-        <p>Failed to fetch users. Error: {error.message}</p>
-      ) : users.length === 0 ? (
-        <p className='lg:ms-[50%] text-center text-3xl text-white' style={{ width: '750%', borderCollapse: 'collapse', marginTop: '200px' }}>No users available.</p>
-      ) : (
+        <p className='lg:ms-28 text-white'>Failed to fetch users. Error: {error.message}</p>
+        ) : users.length === 0 ? (
+          <p className='lg:ms-[50%] text-center text-3xl text-white' style={{ width: '750%', borderCollapse: 'collapse', marginTop: '200px' }}>No users available.</p>
+          ) : (
         <div>
           <p className='text-white text-sm lg:ms-[60%]'>{message}</p>
           <table className='lg:ms-[50%]' style={{ width: '150%', borderCollapse: 'collapse', marginTop: '20px' }}>
@@ -80,10 +141,29 @@ const Userplace = () => {
                   <td style={{ border: '1px solid #D1D5DB', padding: '8px' }}>{user.time}</td>
                   <td style={{ border: '1px solid #D1D5DB', padding: '8px' }}>{user.price}</td>
                   <button onClick={() => removeItem(user._id)}>Delete</button>
+                  <button className='bg-white font-bold text-gray-700 w-[100%]' onClick={() => editItem(user)}>Edit</button>
                 </tr>
               ))}
             </tbody>
           </table>
+
+          <Modal className='dark:bg-white dark:text-pink-700 lg:mt-28 mt-0 border bg-white' isOpen={isOpen} onClose={onClose} isDismissable={false}>
+          <ModalContent>
+              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalBody>
+             
+                <>
+                  <input type="text" onChange={(e) => setNameOfHost(e.target.value)} value={nameOfHost} placeholder='nameofhost'/>
+                  <input type="text" onChange={(e) => setAddress(e.target.value)} value={address} placeholder='address' />
+                  <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} placeholder='description' />
+                  <input type="text" onChange={(e) => setPerks(e.target.value)} value={perks}  placeholder='perks'/>
+                  <input type="text" onChange={(e) => setPrice(e.target.value)} value={price} placeholder='price'/>
+                  <button onClick={() => editedItem()} className='bg-black w-100 text-white'>Submit</button>
+                </>
+              
+              </ModalBody>
+          </ModalContent>
+      </Modal>
         </div>
       )}
     </div>
