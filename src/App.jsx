@@ -49,7 +49,7 @@ function App() {
   };
   
   return (
-    <>
+    <div className='font-[Mirza]'>
     <Routes>  
     <Route path='/' element={<Loader/>}/>
       <Route path='/lay' element={<Layout/>}/>
@@ -68,7 +68,7 @@ function App() {
       <Route path="/" element={<Homepage />} />
       <Route path="*" element={<Errorpage/>} />
     </Routes>
-    </>
+    </div>
   )
 }
 
