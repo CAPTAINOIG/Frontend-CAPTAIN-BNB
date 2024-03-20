@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 const Display = () => {
     return (
         <>
-            <section id='displaysec' className='grid grid-cols-2 gap-20 mt-[-10px] font-serif p-7'>
+            <section id='displaysec' className='grid grid-cols-2 gap-20 mt-[-10px]  p-7'>
                 <div className='grid grid-cols-10 lg:gap-10 gap-9'>
                     <Link to="">
                         <div className=''>

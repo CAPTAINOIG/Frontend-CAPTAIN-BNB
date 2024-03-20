@@ -74,10 +74,10 @@ const Lease = () => {
       <>
         {/* Search Input */}
         <div className="flex justify-around">
-          <p className="lg:mt-[14%]  mt-[35%] md:mt-[25%] lg:mb-0 mb-10 border border-pink-500 rounded-s-sm p-2 py-1 text-black  dark:text-pink-500">
+          <p className="lg:mt-[14%]  mt-[35%] md:mt-[20%] lg:mb-0 mb-10 border border-pink-500 rounded-s-sm p-2 py-1 text-black  dark:text-pink-500">
             Quick Search:
           </p>
-          <div className="flex lg:mt-[14%] mt-[35%] w-[100%] lg:w-[20%] bg-pink-500 md:w-[70%]  md:mt-[25%] lg:mb-0 mb-10 items-center rounded">
+          <div className="flex lg:mt-[14%]  mt-[35%] w-[50%] lg:w-[20%]  bg-pink-500 md:w-[50%]  md:mt-[20%] lg:mb-0 mb-10 items-center rounded">
             <input
               className="bg-pink-500 bg-transparent outline-none border-none rounded"
               type="text"
@@ -101,7 +101,7 @@ const Lease = () => {
           </span>
         </div>
 
-        <div className="grid text-[90%] lg:grid-cols-4 md:grid-cols-2 mb-5 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[-1%] mt-[2%]  font-serif">
+        <div className="grid text-[90%] lg:grid-cols-4 grid-cols-1 lg:p-5 p-10 py-5 md:p-20 md:gap-0 lg:gap-5 dark:bg-gray-900 lg:mt-[-1%] mt-[-8%]">
         {filteredProducts.length == 0 ? (
           <div className="dark:text-white text-xl lg:mt-[14%] mt-[35%] lg:w-[500px] lg:ms-[450px] lg:mb-[150px]">
             Sorry, we couldn't find any results
@@ -112,7 +112,7 @@ const Lease = () => {
         (
           filteredProducts.map((item, i) => (
             <div key={i} className="">
-              <div className="container lg:mt-5 mt-5 ">
+              <div className="container lg:mt-5 md:mt-0 mt-5 lg:pb-0 md:pb-10 pb-10 shadow-lg p-5">
                 <div className="cursor-pointer">
                   <Slider {...settings} className="">
                     {[item.image, item.imagee, item.imager, item.imaged].map(
@@ -157,11 +157,11 @@ const Lease = () => {
 
         <div
           id="dow"
-          className="hidden grid lg:grid-cols-4 grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[3%] mt-[5%] font-serif"
+          className="hidden grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 p-5 gap-5 dark:bg-gray-900 lg:mt-[3%] mt-[5%]"
         >
           {filteredProducts.map((item, i) => (
             <div key={i} className="">
-              <div className="container">
+              <div className="container lg:mt-5 md:mt-0 mt-5 lg:pb-0 md:pb-10 pb-10 shadow-lg p-5">
                 <div className="cursor-pointer">
                   <Slider {...settings} className="">
                     {[item.image, item.imagee, item.imager, item.imaged].map(
