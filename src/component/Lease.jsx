@@ -74,14 +74,14 @@ const Lease = () => {
       <>
         {/* Search Input */}
         <div className="flex justify-around">
-          <p className="lg:mt-[14%]  mt-[35%] md:mt-[20%] lg:mb-0 mb-10 border border-pink-500 rounded-s-sm p-2 py-1 text-black  dark:text-pink-500">
+          <p className="lg:mt-[14%]  mt-[45%] md:mt-[20%] lg:mb-0 mb-10 border border-pink-500 rounded-s-sm p-2 py-1 text-black  dark:text-pink-500">
             Quick Search:
           </p>
-          <div className="flex lg:mt-[14%]  mt-[35%] w-[50%] lg:w-[20%]  bg-pink-500 md:w-[50%]  md:mt-[20%] lg:mb-0 mb-10 items-center rounded">
+          <div className="flex lg:mt-[14%]  mt-[45%] w-[40%] lg:w-[20%]  bg-pink-500 md:w-[50%]  md:mt-[20%] lg:mb-0 mb-10 items-center rounded">
             <input
               className="bg-pink-500 bg-transparent outline-none border-none rounded"
               type="text"
-              placeholder="Search using address..."
+              placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
