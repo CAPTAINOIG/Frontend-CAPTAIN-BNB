@@ -106,10 +106,8 @@ const Lease = () => {
           <div className="dark:text-white text-xl lg:mt-[14%] mt-[35%] lg:w-[500px] lg:ms-[450px] lg:mb-[150px]">
             Sorry, we couldn't find any results
           </div>
-        ) :
-       
-       
-        (
+
+        ) :(
           filteredProducts.map((item, i) => (
             <div key={i} className="">
               <div className="container lg:mt-5 md:mt-0 mt-5 lg:pb-0 md:pb-10 pb-10 shadow-lg p-5">
@@ -139,7 +137,6 @@ const Lease = () => {
               </div>
             </div>
           ))
-         
         )}
         </div>
 

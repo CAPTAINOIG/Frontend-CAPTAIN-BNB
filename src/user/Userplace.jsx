@@ -88,8 +88,9 @@ const Userplace = () => {
         console.error('No user selected for editing');
         return;
       }
-      // const url = `http://localhost:3000/user/editPlace/:id${editingUser.id}`;
-      const url = `http://localhost:3000/user/editPlace/${editingUser._id}`;
+  
+    const url = `https://captain-bnb.onrender.com/user/editPlace/${editingUser._id}`;
+      // const url = `http://localhost:3000/user/editPlace/${editingUser._id}`;
       // console.log(url);
       const userData = { nameOfHost, address, description, perks: perks.split(', '), price };
       const editResponse = await axios.put(url, userData);

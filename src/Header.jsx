@@ -29,7 +29,7 @@ const Header = () => {
     };
 
     return (
-        <div className='p-4  flex justify-between border dark:border-gray-700 border-gray-200 font-bold font-serif'>
+        <div className='p-4  flex justify-between border dark:border-gray-700 border-gray-200 font-bold'>
             <Link to="/" className='flex items-center gap-1'>
                 <FaConnectdevelop size={25} className='text-pink-600 ' />
                 <span className='font-bold lg:text-xl text-pink-600 text-sm lg:block hidden'>captainbnb</span>
@@ -46,7 +46,7 @@ const Header = () => {
                 <Searchinput/>
             </div>
             <div className='flex'>
-                <div className='flex lg:me-5 font-bold font-serif lg:gap-2 mt-3'>
+                <div className='flex lg:me-5 font-bold  lg:gap-2 mt-3'>
                     <span id='Captainbnb'>Captainbnb your home </span>
                     <div className='mt-1'>
                         {

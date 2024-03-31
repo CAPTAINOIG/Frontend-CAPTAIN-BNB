@@ -131,8 +131,8 @@ const Reserve = () => {
     
     return (
         <>
-            <div className='text-lg lg:ms-28 ms-10 font-serif'>What this place offers</div>
-            <div className='grid lg:grid-cols-3 grid-cols-1 my-3 font-serif'>
+            <div className='text-lg lg:ms-28 ms-10'>What this place offers</div>
+            <div className='grid lg:grid-cols-3 grid-cols-1 my-3'>
                 <div className='my-5'>
                     <div className='flex gap-3 ms-10 lg:ms-28 my-3'>
                         <TbToolsKitchen2 />
@@ -178,7 +178,7 @@ const Reserve = () => {
                     </div>
                 </div>
 
-                <div className='rounded-lg border lg:p-3 p-10 lg:border-gray-800 lg:shadow-2xl font-serif lg:w-[75%]'>
+                <div className='rounded-lg border lg:p-3 p-10 lg:border-gray-800 lg:shadow-2xl lg:w-[75%]'>
                     <span className='font-bold'>#{amount} </span> <span>night</span>
                     <div className='flex gap-2 w-[20%]'>
                         <div className='border border-gray-900 rounded'>

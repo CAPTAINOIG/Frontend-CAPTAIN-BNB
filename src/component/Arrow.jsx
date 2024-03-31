@@ -88,7 +88,7 @@ const Arrow = () => {
 
 
       <section className='px-10'>
-        <div className='text-2xl font-bold font-serif lg:ms-20'>{address}</div>
+        <div className='text-2xl font-bold lg:ms-20'>{address}</div>
         <div className='grid grid-cols-2 px-20 lg:mt-4'>
           <img className='rounded-lg lg:block hidden' src={image} alt="" />
           <div id='detail' className='grid lg:grid-cols-2 px-3 lg:gap-5'>
@@ -98,7 +98,7 @@ const Arrow = () => {
             <img className='rounded-lg' src={imager} alt="" />
           </div>
         </div>
-        <p className='lg:ms-20 font-bold font-serif text-2xl mt-5'>Entire Villa in {address}</p>
+        <p className='lg:ms-20 font-bold text-2xl mt-5'>Entire Villa in {address}</p>
         <div className='flex gap-5 text-sm lg:ms-20 my-5 font-serif'>
           <p>{guests} 😎 Guests</p>
           <p>{bedroom} 🌳Bedroom</p>
