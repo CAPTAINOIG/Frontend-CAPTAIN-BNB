@@ -98,7 +98,7 @@ const Paystack = () => {
     return (
         <>
             <h1 className='text-center font-bold text-3xl mt-5'>Confirm and Pay</h1>
-            <div className='grid lg:grid-cols-2 grid-cols-1 font-serif'>
+            <div className='grid lg:grid-cols-2 grid-cols-1'>
                 <div className='border shadow rounded-lg lg:w-[60%] lg:h-[70%] lg:ms-28 lg:mt-[10%] lg:p-5 p-6'>
                     <div className='flex border-b-2'>
                         <div>

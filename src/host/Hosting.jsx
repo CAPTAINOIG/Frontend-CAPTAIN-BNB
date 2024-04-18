@@ -125,9 +125,7 @@ const Hosting = () => {
 
 
   return (
-    <div className='absolute font-serif text-pink-800' id='host'>
-
-
+    <div className='absolute font-[Mirza] text-pink-800' id='host'>
       <form onSubmit={savePlace} className='border bg-white shadow-lg lg:w-[95%] w-[90%] p-5 mb-6 mt-[2%]  rounded-md mx-auto'>
         <h1 className='text-center font-bold text-2xl my-3'>Welcome to the Hosting page</h1>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>

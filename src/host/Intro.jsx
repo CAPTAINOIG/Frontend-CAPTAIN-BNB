@@ -5,7 +5,7 @@ import host3 from '../assets/image/host3.png'
 const Intro = () => {
   return (
     <div>
-      <div className='grid lg:grid-cols-2 grid-cols-1 font-serif'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 font-[Mirza]'>
         <div className='text-center'>
           <img src={host3} alt="" className='mx-auto lg:mt-28 mt-20 lg:p-0 p-5' />
           <h1 className='text-4xl font-bold'>Get started with Captain BNB</h1>

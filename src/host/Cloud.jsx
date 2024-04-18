@@ -58,7 +58,7 @@ const Cloud = () => {
 
 
   return (
-    <div className="flex justify-content-center bg-dark vh-100">
+    <div className="flex justify-content-center bg-dark font-[Mirza] vh-100">
       <div className="lg-w-25 mt-5  lg:me-0 me-[10px] flex flex-wrap">
         <input className="cursor-pointer lg:me-[10%] me-[10px] lg:w-[50%] w-[100%]" type="file" multiple accept="*" name="image" onChange={handleInput} /> <br />
         {progressBars.map((progress, index) => (
