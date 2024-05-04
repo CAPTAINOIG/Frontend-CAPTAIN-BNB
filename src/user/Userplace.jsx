@@ -20,6 +20,7 @@ const Userplace = () => {
   const [price, setPrice] = useState('')
   const [perks, setPerks] = useState('')
   const [editingUser, setEditingUser] = useState(null);
+  // console.log(editingUser);
 
 
 
@@ -70,6 +71,7 @@ const Userplace = () => {
 
   
   const editItem = (user) => {
+    // console.log(user);
     setEditingUser(user);
     setNameOfHost(user.nameOfHost)
     setAddress(user.address)
